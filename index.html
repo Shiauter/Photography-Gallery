@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>My Web</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/w3.css">
+<link rel="stylesheet" href="./css/css">
+<link rel="stylesheet" href="./css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  width: 100%;
+  color: #777;
+  line-height: 1.8;
+  background: rgba(0,0,0,1);
+  font-family: Verdana, sans-serif;
+}
+
+/*Parallax Effect */
+.bgimg-1{
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-image: url('./image/IMG_20190622_004827_465.jpg');
+  min-height: 100%;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+.w3-hover-opacity, .w3-button {
+	transition: background 300ms, color 300ms, opacity 300ms;
+}
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+.nametitle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background: rgba(255,255,255,0.9);
+	color: black;
+	font-size: 35px;
+	font-weight: 900;
+	padding: 20px 40px;
+	line-height: 0;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	mix-blend-mode: screen;
+}
+.sticky {
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+}
+.photoGallery {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: 300px;
+	grid-auto-flow: dense;
+}
+.photoGallery>div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.photoGallery>div>img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: 5px;
+}
+.photoHorizontal {
+	grid-column: span 2;
+}
+.photoVertical {
+	grid-row: span 2;
+}
+.photoBig {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+</style>
+</head><body>
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="nametitle w3-hide-small">
+	<p style="position:relative;transition:top 800ms, opacity 800ms;top:20px;opacity: 0;letter-spacing:40px;text-indent:40px" class="ploadedAnimation">Shiauter</p>
+	<hr style="width:0;transition:width 1000ms;border:1px solid black;margin:20px" class="hrloadedAnimation">
+	<p style="position:relative;transition:bottom 800ms, opacity 800ms;bottom:20px;opacity: 0;font-size:18px;letter-spacing:20px;text-indent:20px"class="ploadedAnimation">wanderer</p>
+  </div>
+  <div style="font-size:30px" class="nametitle w3-hide-medium w3-hide-large">
+	<p style="position:relative;transition:top 800ms, opacity 800ms;top:20px;opacity: 0;letter-spacing:20px;text-indent:20px" class="ploadedAnimation">Shiauter</p>
+	<hr style="width:0;transition:width 1000ms;border:1px solid black;margin:10px" class="hrloadedAnimation">
+	<p style="position:relative;transition:bottom 800ms, opacity 800ms;bottom:20px;opacity: 0;font-size:13px;letter-spacing:10px;text-indent:10px" class="ploadedAnimation">wanderer</p>
+  </div>
+</div>
+<!-- Navbar -->
+<div style="font-weight:900;width:100%;background:rgba(100,100,100,1);color:white;display:flex;transition:background 300ms" class="w3-bar w3-hide-small">
+  <a style="flex:33%" onclick="toTop()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+  <a style="flex:33%" onclick="toPhoto()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Gallery</a>
+  <a style="flex:33%" onclick="toBottom()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
+</div>
+<!-- Navbar clone -->
+<div style="font-weight:900;width:100%;background:rgba(100,100,100,0);color:transparent;display:none" class="w3-bar w3-hide-small">
+  <a style="flex:33%" onclick="toTop()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+  <a style="flex:33%" onclick="toPhoto()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Gallery</a>
+  <a style="flex:33%" onclick="toBottom()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
+</div>
+<!-- Navbar mobile-->
+<div style="font-weight:900;width:100%;background:rgba(100,100,100,1);color:white;display:flex;flex-direction:column" class="w3-bar w3-hide-large w3-hide-medium">
+  <a style="width:100vw" onclick="toTop()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+  <a style="width:100vw" onclick="toPhoto()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Gallery</a>
+  <a style="width:100vw" onclick="toBottom()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
+</div>
+<!-- Container (Photo Gallery Section) -->
+<div style="padding:64px" id="Gallery" style="color:white">
+  <!-- Responsive Grid -->
+  <div class="photoGallery">
+    <div class="photoHorizontal"><img src="./image/IMG_20190705_164828_454.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190705_164621_138.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/IMG_20190705_155048_068.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190704_173450_336.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoBig"><img src="./image/IMG_20190703_150240_555.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190620_140709_225.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/IMG_20190514_233504_610.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/IMG_20190425_001842_599.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/IMG_20190421_005334_057.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190413_223811_964.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/IMG_20190325_084614_764.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190324_032514_366.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190324_031751_332.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/IMG_20190324_032022_882.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/IMG_20190324_031506_210.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoVertical"><img src="./image/47692411_1196839210470751_6833918297474816355_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/49933537_571345963290767_2511811634789798493_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div class="photoBig"><img src="./image/47689915_584154598664357_4309266083713295565_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+    <div><img src="./image/47692823_212182343060331_6802100534118288869_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div style="z-index:2000;height:100vh" id="modal01" class="w3-modal w3-black" onclick="this.style.display=&#39;none&#39;">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div style="position:absolute;transform:translate(-50%,-50%);left:50%;top:50%;display:grid;height:100%" class="w3-modal-content w3-transparent">
+    <img id="img01" class="w3-image" style="border:5px solid white;max-height:100vh;max-width:100%;margin:auto">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="font-size:18px;padding:16px 0" class="w3-center w3-black">
+  <hr style="margin:0 5%;border:1px solid white">
+  <div style="margin:48px 0;display:flex;justify-content:center" class="w3-xlarge">
+  <a style="margin:0 20px" href="https://github.com/Shiauter" target="_blank"><i class="fab fa-github w3-hover-opacity"></i></a>
+    <a style="margin:0 20px" href="https://www.instagram.com/peter_shiaufu/" target="_blank"><i class="fab fa-instagram w3-hover-opacity"></i></a>
+    <a style="margin:0 20px" href="https://discord.gg/Dx5MB8q" target="_blank"><i class="fab fa-discord w3-hover-opacity"></i></a>
+  </div>
+</footer>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+var navbar = document.getElementsByClassName("w3-bar");
+var navPos = navbar[0].offsetTop;
+var imgFullsize = document.getElementById("img01");
+var gallery = document.getElementsByClassName("photoGallery")[0];
+function Resizing() {
+	if (navbar[1].style.display == "none")
+		navPos = navbar[0].offsetTop;
+	else
+		navPos = navbar[1].offsetTop;
+
+	if (document.getElementsByClassName("photoBig")[0].offsetWidth <= 600)
+		gallery.style.display = "block";
+	else
+		gallery.style.display = "grid";
+	Scrolling();
+}
+function Scrolling() {
+    if (document.documentElement.scrollTop >= navPos) {
+		navbar[0].classList.add("sticky");
+		navbar[0].style.background = "rgba(50,50,50,0.3)";
+		navbar[1].style.display = "block";
+	} else {
+		navbar[0].classList.remove("sticky");
+		navbar[0].style.background = "rgba(100,100,100,1)";
+		navbar[1].style.display = "none";
+	}
+}
+function toTop() {window.scrollTo(0, 0);}
+function toPhoto() {window.scrollTo(0, document.getElementById("Gallery").offsetTop);}
+function toBottom() {window.scrollTo(0, document.body.scrollHeight);}
+
+window.onresize = function() {Resizing();}
+window.onscroll = function() {Scrolling();}
+window.onload = function() {
+	var hr = document.getElementsByClassName("hrloadedAnimation");
+	hr[0].style.width = "100%";
+	hr[1].style.width = "100%";
+	var p = document.getElementsByClassName("ploadedAnimation");
+	p[0].style.top = "0px";
+	p[2].style.top = "0px";
+	p[1].style.bottom = "0px";
+	p[3].style.bottom = "0px";
+	for (var i = 0; i < p.length; i++)
+		p[i].style.opacity = "1";
+	Resizing();
+	Scrolling();
+}
+</script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+</body></html>
