@@ -1,93 +1,78 @@
 <!DOCTYPE html>
-<!-- saved from url=(0063)https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm -->
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>My Web</title>
+		<title>Profolio</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./css/css.css">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	</head>
 	<body>
 		<!-- First Parallax Image with Logo Text -->
-		<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-			<div class="nametitle w3-hide-small">
-				<p style="position:relative;transition:top 800ms, opacity 800ms;top:20px;opacity: 0;letter-spacing:40px;text-indent:40px" class="ploadedAnimation">Shiauter</p>
-				<hr style="width:0;transition:width 1000ms;border:1px solid black;margin:20px" class="hrloadedAnimation">
-				<p style="position:relative;transition:bottom 800ms, opacity 800ms;bottom:20px;opacity: 0;font-size:18px;letter-spacing:20px;text-indent:20px"class="ploadedAnimation">wanderer</p>
-			</div>
-			<div style="font-size:30px" class="nametitle w3-hide-medium w3-hide-large">
-				<p style="position:relative;transition:top 800ms, opacity 800ms;top:20px;opacity: 0;letter-spacing:20px;text-indent:20px" class="ploadedAnimation">Shiauter</p>
-				<hr style="width:0;transition:width 1000ms;border:1px solid black;margin:10px" class="hrloadedAnimation">
-				<p style="position:relative;transition:bottom 800ms, opacity 800ms;bottom:20px;opacity: 0;font-size:13px;letter-spacing:10px;text-indent:10px" class="ploadedAnimation">wanderer</p>
+		<div class="bgimg-1" id="home">
+			<div class="card position-absolute top-50 start-50 translate-middle bg-white bg-opacity-75 fw-bold text-center p-5">
+				<p style="transition:top 800ms, opacity 800ms;opacity: 0;letter-spacing:30px;text-indent:40px" class="ploadedAnimation position-relative fs-1">Shiauter</p>
+				<hr style="width: 0%;transition:width 1000ms;border:1px solid black;" class="hrloadedAnimation position-relative translate-middle start-50">
+				<p style="transition:bottom 800ms, opacity 800ms;opacity: 0;letter-spacing:10px;text-indent:20px"class="ploadedAnimation position-relative fs-6">wanderer</p>
 			</div>
 		</div>
 		<!-- Navbar -->
-		<div style="font-weight:900;width:100%;background:rgba(100,100,100,1);color:white;display:flex;transition:background 300ms" class="w3-bar w3-hide-small">
-			<a style="flex:33%" onclick="toTop()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
-			<a style="flex:33%" onclick="toPhoto()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Gallery</a>
-			<a style="flex:33%" onclick="toBottom()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
-		</div>
-		<!-- Navbar clone -->
-		<div style="font-weight:900;width:100%;background:rgba(100,100,100,0);color:transparent;display:none" class="w3-bar w3-hide-small">
-			<a style="flex:33%" onclick="toTop()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
-			<a style="flex:33%" onclick="toPhoto()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Gallery</a>
-			<a style="flex:33%" onclick="toBottom()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
-		</div>
-		<!-- Navbar mobile-->
-		<div style="font-weight:900;width:100%;background:rgba(100,100,100,1);color:white;display:flex;flex-direction:column" class="w3-bar w3-hide-large w3-hide-medium">
-			<a style="width:100vw" onclick="toTop()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
-			<a style="width:100vw" onclick="toPhoto()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Gallery</a>
-			<a style="width:100vw" onclick="toBottom()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
-		</div>
+		<nav id="stickybar" class="navbar navbar-dark navbar-expand-lg bg-dark d-flex text-center">
+			<div onclick="toTop()" class="navbar-button flex-grow-1 text-light"><i class="fa fa-home"></i> Home</div>
+			<div onclick="toPhoto()" class="navbar-button flex-grow-1 text-light"><i class="fa fa-th"></i> Gallery</div>
+			<div onclick="toBottom()" class="navbar-button flex-grow-1 text-light"><i class="fa fa-envelope"></i> Contact</div>
+        </nav>
 		<!-- Container (Photo Gallery Section) -->
 		<div style="padding:64px" id="Gallery" style="color:white">
 			<!-- Responsive Grid -->
 			<div class="photoGallery">
-				<div class="photoHorizontal"><img src="./image/IMG_20190705_164828_454.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190705_164621_138.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/IMG_20190705_155048_068.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190704_173450_336.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoBig"><img src="./image/IMG_20190703_150240_555.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190620_140709_225.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/IMG_20190514_233504_610.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/IMG_20190425_001842_599.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/IMG_20190421_005334_057.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190413_223811_964.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/IMG_20190325_084614_764.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190324_032514_366.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190324_031751_332.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/IMG_20190324_032022_882.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/IMG_20190324_031506_210.jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoVertical"><img src="./image/47692411_1196839210470751_6833918297474816355_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/49933537_571345963290767_2511811634789798493_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div class="photoBig"><img src="./image/47689915_584154598664357_4309266083713295565_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
-				<div><img src="./image/47692823_212182343060331_6802100534118288869_n(1).jpg" onclick="onClick(this)" class="w3-hover-opacity"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoHorizontal"><img src="./image/IMG_20190705_164828_454.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190705_164621_138.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/IMG_20190705_155048_068.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190704_173450_336.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoBig"><img src="./image/IMG_20190703_150240_555.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190620_140709_225.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/IMG_20190514_233504_610.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/IMG_20190425_001842_599.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/IMG_20190421_005334_057.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190413_223811_964.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/IMG_20190325_084614_764.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190324_032514_366.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190324_031751_332.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/IMG_20190324_032022_882.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/IMG_20190324_031506_210.jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img src="./image/47692411_1196839210470751_6833918297474816355_n(1).jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/49933537_571345963290767_2511811634789798493_n(1).jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoBig"><img src="./image/47689915_584154598664357_4309266083713295565_n(1).jpg" onclick="onClick(this)"></div>
+				<div  data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img src="./image/47692823_212182343060331_6802100534118288869_n(1).jpg" onclick="onClick(this)"></div>
 			</div>
 		</div>
-
-		<!-- Modal for full size images on click-->
-		<div style="z-index:2000;height:100vh" id="modal01" class="w3-modal w3-black" onclick="this.style.display=&#39;none&#39;">
-			<span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-			<div style="position:absolute;transform:translate(-50%,-50%);left:50%;top:50%;display:grid;height:100%" class="w3-modal-content w3-transparent">
-				<img id="img01" class="w3-image" style="border:5px solid white;max-height:100vh;max-width:100%;margin:auto">
-				<p id="caption" class="w3-opacity w3-large"></p>
-			</div>
-		</div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body p-1">
+                        <a id="link01" target="_blank">
+                            <img id="img01" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 		<!-- Footer -->
-		<footer style="font-size:18px;padding:16px 0" class="w3-center w3-black">
-			<hr style="margin:0 5%;border:1px solid white">
-			<div style="margin:48px 0;display:flex;justify-content:center" class="w3-xlarge">
-				<a style="margin:0 20px" href="https://github.com/Shiauter" target="_blank"><i class="fab fa-github w3-hover-opacity"></i></a>
-				<a style="margin:0 20px" href="https://www.instagram.com/peter_shiaufu/" target="_blank"><i class="fab fa-instagram w3-hover-opacity"></i></a>
-				<a style="margin:0 20px" href="https://discord.gg/Dx5MB8q" target="_blank"><i class="fab fa-discord w3-hover-opacity"></i></a>
+		<footer class="text-center pb-2 fs-3">
+			<hr class="bg-white mx-5">
+			<div class="my-5 d-flex justify-content-center">
+				<a style="margin:0 20px" href="https://github.com/Shiauter" target="_blank"><i class="text-white fab fa-github w3-hover-opacity"></i></a>
+				<a style="margin:0 20px" href="https://www.instagram.com/peter_shiaufu/" target="_blank"><i class="text-white fab fa-instagram w3-hover-opacity"></i></a>
+				<a style="margin:0 20px" href="https://discord.gg/Dx5MB8q" target="_blank"><i class="text-white fab fa-discord w3-hover-opacity"></i></a>
 			</div>
 		</footer>
 
 		<script src='./js/js.js'></script>
-		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	</body>
 </html>

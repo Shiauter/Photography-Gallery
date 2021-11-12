@@ -1,22 +1,22 @@
 // Modal Image Gallery
 function onClick(element) {
     document.getElementById("img01").src = element.src;
-    document.getElementById("modal01").style.display = "block";
-    var captionText = document.getElementById("caption");
-    captionText.innerHTML = element.alt;
+    document.getElementById("link01").href = element.src;
   }
   
   // Change style of navbar on scroll
-  var navbar = document.getElementsByClassName("w3-bar");
-  var navPos = navbar[0].offsetTop;
+  var navbar = document.getElementById("stickybar");
+  var navPos = navbar.offsetTop;
+  var Gallery_section = document.getElementById("Gallery");
+  var gallery_style = Gallery_section.currentStyle || window.getComputedStyle(Gallery_section);
+  var gallery_paddingTop = parseInt(gallery_style.paddingTop);
+
   var imgFullsize = document.getElementById("img01");
   var gallery = document.getElementsByClassName("photoGallery")[0];
-  function Resizing() {
-      if (navbar[1].style.display == "none")
-          navPos = navbar[0].offsetTop;
-      else
-          navPos = navbar[1].offsetTop;
-  
+  function createGallery() {
+
+  }
+  function Resizing() {  
       if (document.getElementsByClassName("photoBig")[0].offsetWidth <= 600)
           gallery.style.display = "block";
       else
@@ -25,13 +25,12 @@ function onClick(element) {
   }
   function Scrolling() {
       if (document.documentElement.scrollTop >= navPos) {
-          navbar[0].classList.add("sticky");
-          navbar[0].style.background = "rgba(50,50,50,0.3)";
-          navbar[1].style.display = "block";
+          navbar.classList.add("fixed-top");
+          navbar_height = navbar.offsetHeight;
+          document.getElementById("Gallery").style.paddingTop = (navbar_height + gallery_paddingTop) + 'px';
       } else {
-          navbar[0].classList.remove("sticky");
-          navbar[0].style.background = "rgba(100,100,100,1)";
-          navbar[1].style.display = "none";
+          navbar.classList.remove("fixed-top");
+          document.getElementById("Gallery").style.paddingTop = gallery_paddingTop + 'px';
       }
   }
   function toTop() {window.scrollTo(0, 0);}
@@ -43,14 +42,11 @@ function onClick(element) {
   window.onload = function() {
       var hr = document.getElementsByClassName("hrloadedAnimation");
       hr[0].style.width = "100%";
-      hr[1].style.width = "100%";
       var p = document.getElementsByClassName("ploadedAnimation");
       p[0].style.top = "0px";
-      p[2].style.top = "0px";
       p[1].style.bottom = "0px";
-      p[3].style.bottom = "0px";
-      for (var i = 0; i < p.length; i++)
-          p[i].style.opacity = "1";
+      p[0].style.opacity = "1";
+      p[1].style.opacity = "1";
       Resizing();
       Scrolling();
   }
