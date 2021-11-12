@@ -19,6 +19,9 @@
   .navbar-button {
       cursor: pointer;
   }
+  .navbar-button:hover {
+      background-color: #424242;
+  }
   .photoGallery {
       display: grid;
       grid-gap: 10px;
