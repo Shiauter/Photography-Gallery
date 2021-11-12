@@ -25,6 +25,18 @@
 			<div onclick="toPhoto()" class="navbar-button flex-grow-1 text-light py-3"><i class="fa fa-th"></i> Gallery</div>
 			<div onclick="toBottom()" class="navbar-button flex-grow-1 text-light py-3"><i class="fa fa-envelope"></i> Contact</div>
         </nav>
+		<script>
+			var navbar = document.getElementById("stickybar");
+			var navPos = navbar.offsetTop;
+			if (document.documentElement.scrollTop >= navPos) {
+				navbar.classList.add("fixed-top");
+				navbar_height = navbar.offsetHeight;
+				document.getElementById("Gallery").style.paddingTop = (navbar_height + gallery_paddingTop) + 'px';
+			} else {
+				navbar.classList.remove("fixed-top");
+				document.getElementById("Gallery").style.paddingTop = gallery_paddingTop + 'px';
+			}
+		</script>
 		<!-- Container (Photo Gallery Section) -->
 		<div style="padding:64px" id="Gallery" style="color:white">
 			<!-- Responsive Grid -->
