@@ -1,13 +1,13 @@
 window.onresize = function() {Resizing();}
 window.onscroll = function() {Scrolling();}
 window.onload = function() {
-    var hr = document.getElementsByClassName("hrloadedAnimation");
-    hr[0].style.width = "100%";
-    var p = document.getElementsByClassName("ploadedAnimation");
-    p[0].style.top = "0px";
-    p[1].style.bottom = "0px";
-    p[0].style.opacity = "1";
-    p[1].style.opacity = "1";
+    // var hr = document.getElementsByClassName("hrloadedAnimation");
+    // hr[0].style.width = "100%";
+    // var p = document.getElementsByClassName("ploadedAnimation");
+    // p[0].style.top = "0px";
+    // p[1].style.bottom = "0px";
+    // p[0].style.opacity = "1";
+    // p[1].style.opacity = "1";
     Resizing();
     Scrolling();
     createGallery();
