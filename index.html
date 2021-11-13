@@ -25,22 +25,27 @@
 			<div onclick="toPhoto()" class="navbar-button flex-grow-1 text-light py-3"><i class="fa fa-th"></i> Gallery</div>
 			<div onclick="toBottom()" class="navbar-button flex-grow-1 text-light py-3"><i class="fa fa-envelope"></i> Contact</div>
         </nav>
-		<script>
-			var navbar = document.getElementById("stickybar");
-			var navPos = navbar.offsetTop;
-			if (document.documentElement.scrollTop >= navPos) {
-				navbar.classList.add("fixed-top");
-				navbar_height = navbar.offsetHeight;
-				document.getElementById("Gallery").style.paddingTop = (navbar_height + gallery_paddingTop) + 'px';
-			} else {
-				navbar.classList.remove("fixed-top");
-				document.getElementById("Gallery").style.paddingTop = gallery_paddingTop + 'px';
-			}
-		</script>
 		<!-- Container (Photo Gallery Section) -->
 		<div style="padding:64px" id="Gallery" style="color:white">
+			<script>
+				var Gallery_section = document.getElementById("Gallery");
+				var gallery_style = Gallery_section.currentStyle || window.getComputedStyle(Gallery_section);
+				var gallery_paddingTop = parseInt(gallery_style.paddingTop);
+				var navbar = document.getElementById("stickybar");
+				var navbar_height = navbar.offsetHeight;
+				var navPos = navbar.offsetTop;
+				window.onscroll = function() {
+					if (document.documentElement.scrollTop >= navPos) {
+						navbar.classList.add("fixed-top");
+						Gallery_section.style.paddingTop = (navbar_height + gallery_paddingTop) + 'px';
+					} else {
+						navbar.classList.remove("fixed-top");
+						Gallery_section.style.paddingTop = gallery_paddingTop + 'px';
+					}
+				}
+			</script>
 			<!-- Responsive Grid -->
-			<div class="photoGallery">
+			<div id="photoGallery">
 				<div data-bs-toggle="modal" data-bs-target="#photoModal" class="photoHorizontal"><img loading="lazy"src="./image/IMG_20190705_164828_454.jpg" onclick="onClick(this)"></div>
 				<div data-bs-toggle="modal" data-bs-target="#photoModal" class="photoVertical"><img loading="lazy"src="./image/IMG_20190705_164621_138.jpg" onclick="onClick(this)"></div>
 				<div data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img loading="lazy"src="./image/IMG_20190705_155048_068.jpg" onclick="onClick(this)"></div>
@@ -68,6 +73,18 @@
 				<div data-bs-toggle="modal" data-bs-target="#photoModal" class="photoHorizontal"><img loading="lazy"src="./image/IMG_20200709_162550_440.jpg" onclick="onClick(this)"></div>
 				<div data-bs-toggle="modal" data-bs-target="#photoModal" class="photoNormal"><img loading="lazy"src="./image/IMG_20210329_011453_445.jpg" onclick="onClick(this)"></div>
 			</div>
+			<script>
+				window.onresize = function() {Resizing();}
+				window.onload = function() {Resizing();}
+				
+				var gallery = document.getElementById("photoGallery");
+				function Resizing() {  
+					if (document.getElementsByClassName("photoBig")[0].offsetWidth <= 600)
+					    gallery.style.display = "block";
+					else
+					    gallery.style.display = "grid";
+				}
+			</script>
 		</div>
         
         <!-- Modal -->

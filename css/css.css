@@ -22,19 +22,19 @@
   .navbar-button:hover {
       background-color: #424242;
   }
-  .photoGallery {
+  #photoGallery {
       display: grid;
       grid-gap: 10px;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       grid-auto-rows: 300px;
       grid-auto-flow: dense;
   }
-  .photoGallery>div {
+  #photoGallery>div {
       display: flex;
       justify-content: center;
       align-items: center;
   }
-  .photoGallery>div>img {
+  #photoGallery>div>img {
       width: 100%;
       height: 100%;
       object-fit: cover;
