@@ -40,6 +40,7 @@
       object-fit: cover;
       margin: 5px;
       cursor: pointer;
+      background-color: #424242;
   }
   .photoHorizontal {
       grid-column: span 2;
